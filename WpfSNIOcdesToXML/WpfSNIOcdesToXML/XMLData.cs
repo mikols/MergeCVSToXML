@@ -29,7 +29,7 @@ namespace WpfSNIOcdesToXML
             ResultFile = string.Empty;
             if (File.Exists(xmlFile) && File.Exists(csvFile))
             {
-                // Hämta katalogen där XML-filen ligger
+                // Hämta katalogen där XML-filen ligger dåra.
                 string xmlDirectory = Path.GetDirectoryName(Path.GetFullPath(XmlFIle));
                 //ResultFile = Path.Combine(xmlDirectory, $"updated.XML.{DateTime.Now:yyyyMMdd_HHmm}.xml");
                 ResultFile = Path.Combine(xmlDirectory, $"updated.XML.xml");
