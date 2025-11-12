@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tree id="0">
+  <item id="01" text="01 Huvudgrupp" child="1" im0="fc.gif" im1="fo.gif" im2="fc.gif">
+    <item id="011" text="011 Grupp" child="1" im0="fc.gif" im1="fo.gif" im2="fc.gif">
+      <item id="0111" text="0111 Undergrupp 1" child="1" im0="fc.gif" im1="fo.gif" im2="fc.gif">
+        <item id="01110" text="01110 Ännu en undergrupp" child="0" im0="bt.gif" im1="b.gif" im2="bt.gif" />
+      </item>
+      <item id="0113" text="0113 Undergrupp 2" child="1" im0="fc.gif" im1="fo.gif" im2="fc.gif">
+        <item id="01131" text="01131 Mackapär" child="0" im0="bt.gif" im1="b.gif" im2="bt.gif" />
+        <item id="01132" text="01132 Mojäng" child="0" im0="bt.gif" im1="b.gif" im2="bt.gif" />
+      </item>
+    </item>
+  </item>
+  <item id="99" text="99 Verksamhet vid internationella organisationer, utländska ambassader o.d." child="1" im0="fc.gif" im1="fo.gif" im2="fc.gif">
+    <item id="990" text="990 Verksamhet vid internationella organisationer, utländska ambassader o.d." child="1" im0="fc.gif" im1="fo.gif" im2="fc.gif">
+      <item id="9900" text="9900 Verksamhet vid internationella organisationer, utländska ambassader o.d." child="1" im0="fc.gif" im1="fo.gif" im2="fc.gif">
+        <item id="99000" text="99000 Verksamhet vid internationella organisationer, utländska ambassader o.d." child="0" im0="bt.gif" im1="b.gif" im2="bt.gif" />
+      </item>
+    </item>
+  </item>
+</tree>
