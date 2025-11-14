@@ -27,6 +27,7 @@ namespace WpfSNIOcdesToXML
             InitializeComponent();
             TextBox_XmlFile.Text = @"C:\temp\test\SNI\Test-SNItree.xml";
             TextBox_CsvFile.Text = @"C:\temp\test\SNI\Test.nyckel-sni2007.csv";
+            TextBox_CsvFile2.Text = @"C:\temp\test\SNI\struktur-refactored-light.csv";
         }
 
         private void BtnLoadXML_Click(object sender, RoutedEventArgs e)
@@ -41,15 +42,23 @@ namespace WpfSNIOcdesToXML
             Label_CSV.Content = XmlCSVMerger.CsvFIle;
         }
 
+        private void BtnLoadCSV2_Click(object sender, RoutedEventArgs e)
+        {
+            XmlCSVMerger.CsvFile2 = TextBox_CsvFile2.Text;
+            Label_CSV2.Content = XmlCSVMerger.CsvFile2;
+        }
+
         private void BtnMERGE_Click(object sender, RoutedEventArgs e)
         {
             XmlCSVMerger.RUN();
-            TextBox_ResultFile.Text = XmlCSVMerger.ResultFile;
+            TextBox_ResultFile.Text = XmlCSVMerger.ResultFileXML;
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+
     }
 }
