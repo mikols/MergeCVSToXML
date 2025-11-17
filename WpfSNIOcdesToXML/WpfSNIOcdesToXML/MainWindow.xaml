@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid Background="Green"   >
+        <Grid Background="#FFD1813E"   >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition  Width="4*"/>
@@ -32,15 +32,15 @@
                 <RowDefinition  Height="30"/>
             </Grid.RowDefinitions>
 
-            <Label Content="XML:"  Grid.Row="1" Grid.Column="0" />
+            <Label Content="XML:"  Grid.Row="1" Grid.Column="0" FontSize="14" />
             <TextBox Name="TextBox_XmlFile"  Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" BorderThickness="2" FontSize="14" />
             <Button x:Name="BtnLoadXML" Content="Load XML file" Grid.Column="2" Grid.Row="1" Click="BtnLoadXML_Click" />
 
-            <Label Content="CSV 1:"  Grid.Row="3" Grid.Column="0" />
+            <Label Content="CSV 1:"  Grid.Row="3" Grid.Column="0" FontSize="14" />
             <TextBox Name="TextBox_CsvFile"  Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" BorderThickness="2" FontSize="14" />
             <Button x:Name="BtnLoadCSV" Content="Load CSV file" Grid.Column="2" Grid.Row="3" Click="BtnLoadCSV_Click"  />
 
-            <Label  Content="CSV 2:" Grid.Row="5" Grid.Column="0" />
+            <Label  Content="CSV 2:" Grid.Row="5" Grid.Column="0" FontSize="14" />
             <TextBox Name="TextBox_CsvFile2"  Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" BorderThickness="2" FontSize="14" />
             <Button x:Name="BtnLoadCSV2" Content="Load CSV file All" Grid.Column="2" Grid.Row="5" Click="BtnLoadCSV2_Click"  />
 
@@ -51,6 +51,7 @@
             <Label Name="Label_XML" Content="L.A." Grid.Column="1" Grid.Row="2" Foreground="#FF1235AE"/>
             <Label Name="Label_CSV" Content="L.A." Grid.Column="1" Grid.Row="4" Foreground="#FFAC164D" />
             <Label Name="Label_CSV2" Content="L.A." Grid.Column="1" Grid.Row="6" Foreground="White" />
+            <Label Content="v3" HorizontalAlignment="Left" Grid.Row="13" VerticalAlignment="Center"/>
 
         </Grid>
 

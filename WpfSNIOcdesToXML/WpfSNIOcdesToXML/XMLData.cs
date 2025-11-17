@@ -33,10 +33,21 @@ namespace WpfSNIOcdesToXML
         public bool RUN()
         {
             ResultFileXML = string.Empty;
-            if (File.Exists(xmlFile) && File.Exists(csvFile) && File.Exists(csvFile2))
+            if (File.Exists(xmlFile))
             {
-                // Hämta katalogen där XML-filen ligger
-                string xmlDirectory = Path.GetDirectoryName(Path.GetFullPath(xmlFile));
+                return false;
+            }
+            if (File.Exists(csvFile))
+            {
+                return false;
+            }
+            if (File.Exists(csvFile2))
+            {
+                return false;
+            }
+
+            // Hämta katalogen där XML-filen ligger
+            string xmlDirectory = Path.GetDirectoryName(Path.GetFullPath(xmlFile));
 
                 //ResultFile = Path.Combine(xmlDirectory, $"updated.XML.{DateTime.Now:yyyyMMdd_HHmm}.xml");
                 ResultFileXML = Path.Combine(xmlDirectory, $"updated.XML.xml");
@@ -46,8 +57,6 @@ namespace WpfSNIOcdesToXML
                 UpdateXmlWithCsv_v3(xmlFile, csvFile2);
                 // CreateChangeReport_v2();
                 return true;
-            }
-            return false;
         }
 
 
@@ -187,7 +196,6 @@ namespace WpfSNIOcdesToXML
                 if (!string.IsNullOrWhiteSpace(row.Undergrupp)) id = row.Huvudgrupp + row.Undergrupp;
                 if (!string.IsNullOrWhiteSpace(row.Detaljgrupp)) id = row.Detaljgrupp;
                 id = NormalizeId(id); // <-- här tas punkter bort
-
 
                 if (string.IsNullOrEmpty(id)) continue;
 
