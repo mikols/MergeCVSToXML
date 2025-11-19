@@ -11,7 +11,7 @@ namespace WpfSNIOcdesToXML
     public class XMLData
     {
         private string xmlFile = "";
-        private string csvFile = "";
+        private string csvFile1 = "";
         private string csvFile2 = "";
 
         public string ResultFileXML = string.Empty;
@@ -20,7 +20,7 @@ namespace WpfSNIOcdesToXML
 
         public string XmlFIle { get => xmlFile; set => xmlFile = value; }
 
-        public string CsvFIle { get => csvFile; set => csvFile = value; }
+        public string CsvFIle { get => csvFile1; set => csvFile1 = value; }
 
         public string CsvFile2 { get => csvFile2; set => csvFile2 = value; }
 
@@ -33,15 +33,11 @@ namespace WpfSNIOcdesToXML
         public bool RUN()
         {
             ResultFileXML = string.Empty;
-            if (File.Exists(xmlFile))
+            if (!File.Exists(xmlFile))
             {
                 return false;
             }
-            if (File.Exists(csvFile))
-            {
-                return false;
-            }
-            if (File.Exists(csvFile2))
+            if ((!File.Exists(csvFile1)) && (!File.Exists(csvFile2)))
             {
                 return false;
             }
@@ -54,9 +50,14 @@ namespace WpfSNIOcdesToXML
                 //ChangeReportFile = Path.Combine(xmlDirectory, $"changeReport.{DateTime.Now:yyyyMMdd_HHmm}.txt");
                 ChangeReportFile = Path.Combine(xmlDirectory, $"changeReport.txt");
 
+            if (File.Exists(csvFile2))
                 UpdateXmlWithCsv_v3(xmlFile, csvFile2);
-                // CreateChangeReport_v2();
-                return true;
+            else if (File.Exists(csvFile1))
+            {
+                updateAndSaveXml_v2(xmlFile, csvFile1);
+                CreateChangeReport_v2();
+            }
+            return true;
         }
 
 
@@ -202,25 +203,26 @@ namespace WpfSNIOcdesToXML
                 var existingItem = doc.Descendants("item")
                                       .FirstOrDefault(x => NormalizeId((string)x.Attribute("id")) == id);
 
+                var newText = id.ToString() + " " + row.Text;
 
                 if (existingItem != null)
                 {
                     string oldText = (string)existingItem.Attribute("text");
-                    existingItem.SetAttributeValue("text", row.Text);
+                    existingItem.SetAttributeValue("text", newText);
 
                     logEntries.Add(new ChangeLogEntry
                     {
                         Id = id,
                         Action = "Updated",
                         OldText = oldText,
-                        NewText = row.Text
+                        NewText = newText
                     });
                 }
                 else
                 {
                     XElement newItem = new XElement("item",
                         new XAttribute("id", id),
-                        new XAttribute("text", row.Text),
+                        new XAttribute("text", newText),
                         new XAttribute("child", "0"),
                         new XAttribute("im0", "bt.gif"),
                         new XAttribute("im1", "b.gif"),
@@ -238,7 +240,7 @@ namespace WpfSNIOcdesToXML
                             Id = id,
                             Action = "Added",
                             OldText = "",
-                            NewText = row.Text
+                            NewText = newText
                         });
                     }
                     else
@@ -248,7 +250,7 @@ namespace WpfSNIOcdesToXML
                             Id = id,
                             Action = "Error",
                             OldText = "",
-                            NewText = row.Text
+                            NewText = newText
                         });
                     }
                 }
