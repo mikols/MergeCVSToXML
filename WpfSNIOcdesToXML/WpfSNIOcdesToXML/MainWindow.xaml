@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid Background="#FFD1813E"   >
+        <Grid Background="#FF3EA9D1"   >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition  Width="4*"/>
@@ -51,7 +51,7 @@
             <Label Name="Label_XML" Content="L.A." Grid.Column="1" Grid.Row="2" Foreground="#FF1235AE"/>
             <Label Name="Label_CSV" Content="L.A." Grid.Column="1" Grid.Row="4" Foreground="#FFAC164D" />
             <Label Name="Label_CSV2" Content="L.A." Grid.Column="1" Grid.Row="6" Foreground="White" />
-            <Label Content="v3" HorizontalAlignment="Left" Grid.Row="13" VerticalAlignment="Center"/>
+            <Label Content="ver 3.2" HorizontalAlignment="Left" Grid.Row="13" VerticalAlignment="Center"/>
 
         </Grid>
 
